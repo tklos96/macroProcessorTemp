@@ -1,0 +1,14 @@
+#include <iostream>
+
+void @M functionName {
+    std::cout << "Prints the sum of 2 and 4" << std::endl;
+    @M print_sum(2,4)
+}
+
+
+int main() {
+    @M functionCall
+   
+
+    return 1;
+}

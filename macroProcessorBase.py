@@ -20,7 +20,7 @@ invocation_regex = r'(?P<indent>\s*)@\s*' + re.escape(macro_keyword) + \
 # List files with a given suffix from a directory.
 def filesWithSuffix(dirName,suffix):
     fileList = []
-    if(os.isdir(dirName)):
+    if(os.path.isdir(dirName)):
         for f in os.listdir(dirName):
             fpath = os.path.join(dirName,f)
             if os.path.isfile(fpath) and fpath.endswith(suffix) :
