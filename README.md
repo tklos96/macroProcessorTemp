@@ -12,3 +12,8 @@ To specify a different directory (or list of directories):
 
 To print the output to stdout (still writes to file):
 `python3 macroProcessor.py -p`
+
+
+
+For more info, see slides:
+https://docs.google.com/presentation/d/1TNwxJ_mC7x9flEW78t7NjyB9KadjFWBPOrKiEHQ-pAA/edit?usp=sharing
