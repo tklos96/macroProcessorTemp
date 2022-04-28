@@ -9,10 +9,10 @@ except ImportError: pass
 ### Global Regular Expressions
 string_char = "\""
 comment_char = "!"
-macro_keyword = 'M'
-macro_regex = r'\s*@\s*' + re.escape(macro_keyword) + r'\s*\w*(?:\s*\(.*\))?'
-invocation_regex = r'(?P<indent>\s*)@\s*' + re.escape(macro_keyword) + \
-                   r'\s*(?P<key>\w*)(?:\s*\((?P<args>.*)\))?'
+macro_keyword = r'M(?:ACRO)?'
+macro_regex = r'\s*@\s*' + macro_keyword + r'\s+\w*(?:\s*\(.*?\))?'
+invocation_regex = r'(?P<indent>\s*)@\s*' + macro_keyword + \
+                   r'\s+(?P<key>\w*)(?:\s*\((?P<args>.*?)\))?'
 
 
 ### General functions
@@ -101,6 +101,8 @@ class macroProcessor:
     arglist = self.argdict[key]
     for i,arg in enumerate(args):
       if(i<len(arglist) ):
+        arg_re_2 = r'\\'+arglist[i]
+        definition = re.sub( arg_re_2, arg, definition)
         arg_re = r'\b'+arglist[i]+r'\b' #don't substitute substrings
         definition = re.sub( arg_re, arg, definition)
 
